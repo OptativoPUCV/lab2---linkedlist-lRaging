@@ -40,11 +40,16 @@ List * createList()
  
 }
 
-void * firstList(List * list) {
+void * firstList(List * list) 
+{
+    list->current = list->head;
+    return list->head->data;
     return NULL;
 }
 
-void * nextList(List * list) {
+void * nextList(List * list) 
+{
+  
     return NULL;
 }
 
