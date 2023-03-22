@@ -18,3 +18,17 @@ Wed 22 Mar 2023 02:50:38 PM UTC:
  1 file changed, 1 deletion(-)
  tests:  0|0
 426b71b
+Wed 22 Mar 2023 02:50:59 PM UTC: 
+ list.c | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+In file included from test.c:5:
+list.c: In function ‘firstList’:
+list.c:46:12: error: expected expression before ‘List’
+   46 |     return List->head->data;
+      |            ^~~~
+list.c:47:1: error: control reaches end of non-void function [-Werror=return-type]
+   47 | }
+      | ^
+cc1: all warnings being treated as errors
+Compilation failed
+56c3e21
