@@ -50,7 +50,7 @@ void * firstList(List * list)
 
 void * nextList(List * list) 
 {
-    if(list->current == list->tail || list->current == NULL || list->head == NULL || list->head->next == NULL)
+    if(list->current == list->tail || list->current == NULL || list->head == NULL || list->head->next == NULL) return NULL;
   
     list->current = list->current->next;
   
