@@ -42,7 +42,7 @@ List * createList()
 
 void * firstList(List * list) 
 {
-  if (list == NULL || list->head == NULL) return NULL;
+  if (list->head == NULL) return NULL;
   
   list->current = list->head;
   return list->current->data;
@@ -59,7 +59,7 @@ void * nextList(List * list)
 
 void * lastList(List * list) 
 {
-  if (list == NULL || list->tail == NULL) return NULL; 
+  if (list->tail == NULL) return NULL; 
   
   void *data = list->tail->data; 
   list->current = list->tail; 
@@ -69,7 +69,7 @@ void * lastList(List * list)
 
 void * prevList(List * list) 
 {
-  if(list == NULL || list->current == NULL || list->current == list->head) return NULL;
+  if(list->current == NULL || list->current == list->head) return NULL;
   Node *prev = list->head;
   while (prev != NULL && prev->next != list->current) 
   {
