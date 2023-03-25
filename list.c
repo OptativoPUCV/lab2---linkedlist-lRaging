@@ -151,11 +151,6 @@ void * popCurrent(List * list)
  {
     list->tail = nodeEliminado->prev;
  }
- else 
- {
-    nodeEliminado->next->prev = nodeEliminado->prev;
- }
-  
   return data;
 }
 
