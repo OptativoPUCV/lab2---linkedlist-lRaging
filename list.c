@@ -127,7 +127,8 @@ void * popFront(List * list)
     return popCurrent(list);
 }
 
-void * popBack(List * list) {
+void * popBack(List * list) 
+{
     list->current = list->tail;
     return popCurrent(list);
 }
@@ -149,17 +150,19 @@ void * popCurrent(List * list)
  if (nodeEliminado == list->tail) 
  {
     list->tail = nodeEliminado->prev;
-  }
+ }
  else 
  {
     nodeEliminado->next->prev = nodeEliminado->prev;
  }
-  
  list->current = nodeEliminado->next;
+  return data;
 }
 
-void cleanList(List * list) {
-    while (list->head != NULL) {
+void cleanList(List * list) 
+{
+    while (list->head != NULL) 
+    {
         popFront(list);
     }
 }
