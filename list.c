@@ -81,44 +81,43 @@ void * prevList(List * list)
 
 void pushFront(List * list, void * data) 
 {
-  Node * nNode = createNode(data);
+  Node * nodoNuevo = createNode(data);
   if (list->head == NULL) 
   {
-    list->head = nNode;
-    list->tail = nNode;
-    list->current = nNode;
+    list->head = nodoNuevo;
+    list->tail = nodoNuevo;
+    list->current = nodoNuevo;
   } 
   else 
   {
-    nNode->next = list->head;
-    list->head->prev = nNode;
-    list->head = nNode;
+    nodoNuevo->next = list->head;
+    list->head->prev = nodoNuevo;
+    list->head = nodoNuevo;
   }
 }
 
 void pushBack(List * list, void * data) 
 {
-  
   list->current = list->tail;
   pushCurrent(list,data);
 }
 
 void pushCurrent(List * list, void * data) 
 {
-  Node *nNode = createNode(data);
+  Node *nodoNuevo = createNode(data);
   if(list->current == NULL) return;
 
-  nNode->prev = list-> current;
+  nodoNuevo->prev = list-> current;
   
   if (list->current == list->tail)
   {
-    list->tail = nNode;
-    list->current->next =nNode;
+    list->tail = nodoNuevo;
+    list->current->next =nodoNuevo;
   }
   else
   {
-    list->current->next = nNode;
-    nNode->next = list-> current->next;
+    list->current->next = nodoNuevo;
+    nodoNuevo->next = list-> current->next;
   }
 }
 
@@ -133,8 +132,30 @@ void * popBack(List * list) {
     return popCurrent(list);
 }
 
-void * popCurrent(List * list) {
-    return NULL;
+void * popCurrent(List * list) 
+{
+ if (list->current == NULL) return NULL;
+ Node *nodeEliminado = list->current;
+ void *data = nodeEliminado->data;
+  
+ if (nodeEliminado == list->head) 
+ {
+    list->head = nodeEliminado->next;
+ } 
+ else 
+ {
+    nodeEliminado->prev->next = nodeEliminado->next;
+ }
+ if (nodeEliminado == list->tail) 
+ {
+    list->tail = nodeEliminado->prev;
+  }
+ else 
+ {
+    nodeEliminado->next->prev = nodeEliminado->prev;
+ }
+  
+ list->current = nodeEliminado->next;
 }
 
 void cleanList(List * list) {

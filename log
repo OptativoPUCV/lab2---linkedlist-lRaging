@@ -277,3 +277,17 @@ Fri 24 Mar 2023 06:30:03 PM UTC:
  tests:  11|1
 total_score: 55/70
 4b97ef1
+Sat 25 Mar 2023 03:54:21 PM UTC: 
+ list.c | 52 +++++++++++++++++++++++++++++++++++++---------------
+ 1 file changed, 37 insertions(+), 15 deletions(-)
+In file included from test.c:5:
+list.c: In function ‘popCurrent’:
+list.c:139:8: error: unused variable ‘data’ [-Werror=unused-variable]
+  139 |  void *data = nodeEliminado->data;
+      |        ^~~~
+list.c:159:1: error: control reaches end of non-void function [-Werror=return-type]
+  159 | }
+      | ^
+cc1: all warnings being treated as errors
+Compilation failed
+be9c65d
