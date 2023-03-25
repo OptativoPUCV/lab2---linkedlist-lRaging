@@ -147,6 +147,17 @@ void * popCurrent(List * list)
  {
     nodeEliminado->prev->next = nodeEliminado->next;
  }
+ if (nodeEliminado == list->tail) 
+ {
+    list->tail = nodeEliminado->prev;
+ }
+ else 
+ {
+    nodeEliminado->next->prev = nodeEliminado->prev;
+ }
+
+ list->current = nodeEliminado;
+  
   return data;
 }
 
