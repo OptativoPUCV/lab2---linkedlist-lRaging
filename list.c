@@ -153,7 +153,7 @@ void * popCurrent(List * list)
  }
   else 
  {
-    nodeEliminado->next->prev = nodeEliminado;
+    nodeEliminado->next->prev = nodeEliminado->prev;
  }
   return data;
 }
